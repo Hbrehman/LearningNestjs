@@ -1,10 +1,18 @@
-import { Injectable, NestMiddleware } from "@nestjs/common";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from 'express';
 
-@Injectable()
-export class LoggerMiddleware implements NestMiddleware {
-    use(req: Request, res: Response, next: NextFunction) {
-        console.log('requesting...');
-        next();
-    }
+// Middleware in a function
+export function logger(req: Request, res: Response, next: NextFunction) {
+  console.log('Requesting...');
+  next();
 }
+
+// Middleware in a class
+// import { Injectable, NestMiddleware } from '@nestjs/common';
+
+// @Injectable()
+// export class LoggerMiddleware implements NestMiddleware {
+//     use(req: Request, res: Response, next: NextFunction) {
+//         console.log('requesting...');
+//         next();
+//     }
+// }
